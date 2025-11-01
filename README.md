@@ -1,81 +1,51 @@
-🔐 Password Breach Checker 
+# 🔐 Password Breach Checker (Frontend)
 
-This is the frontend for the Password Breach Checker web app.
-It allows users to securely check whether their passwords have been compromised in any known data breaches using the Have I Been Pwned (HIBP) API (via the backend).
+A secure and interactive web app to check if your password has been exposed in any known data breaches — powered by the **Have I Been Pwned (HIBP)** API.
 
-🚀 Features
+---
 
-✅ User-friendly password input form
+## 🌟 Features
 
-🔒 Client-side SHA-1 hashing (no plain passwords sent over the network)
+- 🧠 **SHA-1 Client-Side Hashing** — Passwords are never sent in plain text  
+- 🚀 **Fast and Simple UI** — Built with React and Tailwind CSS  
+- 🔍 **Real-Time Results** — Checks breach count instantly via backend  
+- 🔄 **Smooth Navigation** — Managed using React Router  
+- 🧩 **Reusable Components** — Clean and modular codebase  
 
-⚡ Real-time API communication with backend
+---
 
-🧩 Displays whether a password has been breached, and how many times
+## 🧠 How It Works
 
-💬 Simple, modern UI built with React + Tailwind CSS
+1. User enters a password in the input field.  
+2. The password is **hashed locally** (SHA-1).  
+3. The hash is split into:
+   - `prefix`: first 5 characters  
+   - `suffix`: remaining 35 characters  
+4. The `prefix` and `suffix` are sent to the backend (`/check-password`).  
+5. The backend queries the **HIBP API** and returns:  
+   - Whether the password was found  
+   - Number of times it appeared in breaches  
+6. The frontend displays a result:
+   - ✅ **Safe Password**
+   - ⚠️ **Compromised Password**
 
-🔁 Navigation between pages using React Router
+---
 
+## 🛠️ Tech Stack
 
-🧠 How It Works
+| Tool | Purpose |
+|------|----------|
+| **React.js** | Frontend framework |
+| **React Router** | Navigation between pages |
+| **Tailwind CSS** | Styling and UI design |
+| **Fetch API** | Communication with backend |
+| **Vite** | Development environment (optional) |
 
-The user enters a password in the form.
+---
 
-The app hashes the password locally using SHA-1 and splits it into:
+## ⚙️ Setup & Installation
 
-prefix: first 5 characters of the hash
-
-suffix: the remaining hash part
-
-The frontend sends the prefix and suffix to the backend (/check-password).
-
-The backend checks against the HIBP API and returns:
-
-whether the password was found in breaches
-
-how many times it appeared
-
-The frontend then shows a detailed result (safe or compromised).
-
-
-🛠️ Tech Stack
-
-React.js — Frontend library
-
-React Router — Page navigation
-
-Tailwind CSS — Styling
-
-Fetch API — Backend communication
-
-Vite — (if applicable) development setup
-
-⚙️ Installation & Setup
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/password-breach-checker-frontend.git
 cd password-breach-checker-frontend
-
-2️⃣ Install dependencies
-npm install
-
-3️⃣ Run the app
-npm run dev
-
-The app should now be running on http://localhost:5173 (or your configured port).
-
-🔗 Backend
-This frontend communicates with the backend at:
-http://localhost:3000/check-password
-
-Make sure the backend server is running before testing the app.
-
-📸 UI Overview
-Home Page: Enter password to check
-Results Page: Displays password breach status and recommendations
-
-📜 License
-This project is open-source under the MIT License.
-
-👨‍💻 Author
-Ubaid Sheikh
-Linkedin Profile : https://www.linkedin.com/in/ubaid018
