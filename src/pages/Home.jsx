@@ -30,7 +30,7 @@ function Home() {
       setPrefix(prefix);
       setSuffix(suffix);
 
-      const apiResponse = await fetch("http://localhost:3000/check-password", {
+      const apiResponse = await fetch("https://breacheck-backend.vercel.app/check-password", {
         method: 'POST',
         body: JSON.stringify({ prefix, suffix }),
         headers: {
